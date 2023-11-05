@@ -6,17 +6,17 @@ public class DepositCalculator {
     double calculateComplexPercent(double depositAmount, double yearRate, int depositPeriod) {
         double capitalization = Math.pow((1 + yearRate / 12), 12 * depositPeriod);
         double depositResult = depositAmount * capitalization;
-        return round(depositResult, 2);
+        return round(depositResult, 2); //В методе лучше разделить объявление переменных с остальным кодом
     }
 
     double calculateSimplePercent(double depositAmount, double yearRate, int depositPeriod) {
         double income = depositAmount * yearRate * depositPeriod;
-        return round(depositAmount + income, 2);
+        return round(depositAmount + income, 2); //В методе лучше разделить объявление переменных с остальным кодом
     }
 
-    double round(double value, int placesAfterComma) {
-        double scale = Math.pow(10, placesAfterComma);
-        return Math.round(value * scale) / scale;
+    double round(double value, int placesAfterComma) { //Перед раунд лучше поставить глагол, чтобы было понятно, что в методе
+        double scale = Math.pow(10, placesAfterComma); // что-то вычисляется (например, calculateRound)
+        return Math.round(value * scale) / scale; //В методе лучше разделить объявление переменных с остальным кодом
     }
 
     void calculateDepositResult() {
